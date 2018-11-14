@@ -1,8 +1,10 @@
-const newArray = [ 27, 234, 5436, 74, 65, 1 ]
+const arr = [ 27, 234, 5436, 74, 65, 1 ]
 
 const bubleSort = arr => { 
 	
-	const iterationOverAll = arr.length - 1
+	const [...sortedArray] = arr  
+	
+	const iterationOverAll = sortedArray.length - 1
 	
   for ( let i = 0; i < iterationOverAll; i++ ) {
  
@@ -10,9 +12,9 @@ const bubleSort = arr => {
  
     for ( let j = 0; j < iterationElement; j++ ) {
 			
-      if ( arr[j] > arr[j+1] ) {
+      if ( sortedArray[j] > sortedArray[j+1] ) {
 
-				[ arr[j], arr[j+1] ] = [ arr[j+1], arr[j] ]  
+				[ sortedArray[j], sortedArray[j+1] ] = [ sortedArray[j+1], sortedArray[j] ]  
 				
       } 
       
@@ -20,9 +22,7 @@ const bubleSort = arr => {
 
   }
 
-  return arr
+  return sortedArray
 }
 
-const sortedArr = bubleSort( newArray )
-
-console.log(`sortedArr -`, sortedArr ) 
+console.log(`bubleSort -`, bubleSort( arr ) ) 
