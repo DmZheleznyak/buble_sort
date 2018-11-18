@@ -2,33 +2,50 @@ const quickSort = arr => {
 
 	const [...array] = arr
 
-	const middleIndex = Math.round( ( copyArray.length - 1 ) / 2 )
-	const pivot = array[ middleIndex ]	
-	let indexFirst = 0
-	let indexLast = array.length - 1 
+	const arrayForLess = []
+	const arrayForEqual = []
+	const arrayForGreater = []
 
-	while( indexFirst < indexLast ) {
+	if ( array.length > 1 ) {
+		const indexPivot = Math.round( ( array.length ) / 2 )
+		const pivot = array[ indexPivot ]
 
-		// var rightSideNumber = 0
-		console.log( array[middleIndex] )
-		while ( indexFirst < middleIndex  && array[ indexFirst ] < pivot ) {
-			indexFirst += 1
+		for (let i = 0; i < array.length; i++ ) {
+			
+			if ( i !== indexPivot ) {
+
+				if ( array[i] < pivot ) {
+					console.log(`less Number`, array[i])
+					arrayForLess.push( array[i] )
+				}
+
+				if ( array[i] === pivot ) {
+					console.log(`equal Number`, array[i])
+					arrayForEqual.push( array[i] )
+				}
+
+				if ( array[i] > pivot ) {
+					console.log(`greater Number`, array[i])
+					arrayForGreater.push( array[i] )
+				}
+				
+			}
+
 		}
-		while ( indexLast > middleIndex && array[ indexLast ] > pivot ) {
-			indexLast -= 1
-		} 
+		console.log(`arrayForLess`, arrayForLess )
+		console.log(`arrayForEqual`, arrayForEqual )
+		console.log(`arrayForGreater`, arrayForGreater )
 
-		if ( indexFirst < indexLast ) {
-			[ array[indexFirst], array[indexLast] ] = [ array[indexLast], array[indexFirst] ]
-		}
-
-	} 
-
-	console.log(`pivot`, pivot ) // 354
+		const sortedArray = [...arrayForLess, ...arrayForEqual, ...arrayForGreater]
+		// console.log( `sortedArray`, sortedArray )
+		
+	} else {
+		return array
+	}
 
 }
 
-const checkArray = [ 30, 25, 1000, 354, 60234, 750, 100, 234, 4, 45 ] 
+const checkArray = [ 3, 2, 10, 5, 4, 7, 8, 1, 9, 6, 11 ] 
 
 quickSort( checkArray ) 
 
@@ -39,7 +56,38 @@ quickSort( checkArray )
 // вызывается сортировка вставками. 
 // Увеличение скорости может составлять до 15%
 
-// в качестве опорного(pivot) целесообразно 
-// брать средний из трех, 
-// а если массив достаточно велик - 
-// то из девяти произвольных элементов.
+// в качестве опорного(pivot)
+
+// const quickSort = arr => {
+
+// 	const [...array] = arr
+
+// 	const middleIndex = Math.round( ( array.length - 1 ) / 2 )
+// 	const pivot = array[ middleIndex ]	
+// 	let indexFirst = 0
+// 	let indexLast = array.length - 1 
+
+// 	while( indexFirst < indexLast ) {
+
+		
+// 		console.log( array[middleIndex] )
+// 		while ( indexFirst < middleIndex  && array[ indexFirst ] < pivot ) {
+// 			indexFirst += 1
+// 		}
+// 		while ( indexLast > middleIndex && array[ indexLast ] > pivot ) {
+// 			indexLast -= 1
+// 		} 
+
+// 		if ( indexFirst < indexLast ) {
+// 			[ array[indexFirst], array[indexLast] ] = [ array[indexLast], array[indexFirst] ]
+// 		}
+
+// 	} 
+
+// 	console.log(`pivot`, pivot ) // 354
+
+// }
+
+// const checkArray = [ 30, 25, 1000, 354, 60234, 750, 100, 234, 4, 45 ] 
+
+// quickSort( checkArray ) 
