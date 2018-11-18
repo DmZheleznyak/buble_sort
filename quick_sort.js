@@ -30,13 +30,12 @@ const quickSort = arr => {
 				}
 				
 			} else {
+				
 				arrayForEqual.push( pivot )
 			}
 
 		}
-
 		const sortedArray = [...quickSort(arrayForLess), ...quickSort(arrayForEqual), ...quickSort(arrayForGreater)]
-		console.log( `sortedArray`, sortedArray )
 		return sortedArray
 	} else {
 		return array
@@ -46,7 +45,7 @@ const quickSort = arr => {
 
 const checkArray = [ 3, 2, 10, 5, 34, 345, 43, 65, 4, 7, 8, 1, 9, 6, 11 ] 
 
-quickSort( checkArray ) 
+console.log( quickSort( checkArray ) )
 
 // Из-за рекурсии и других "накладных расходов" 
 // Quicksort может оказаться не столь уж быстрой для коротких массивов. 
