@@ -15,37 +15,36 @@ const quickSort = arr => {
 			if ( i !== indexPivot ) {
 
 				if ( array[i] < pivot ) {
-					console.log(`less Number`, array[i])
+
 					arrayForLess.push( array[i] )
 				}
 
 				if ( array[i] === pivot ) {
-					console.log(`equal Number`, array[i])
+
 					arrayForEqual.push( array[i] )
 				}
 
 				if ( array[i] > pivot ) {
-					console.log(`greater Number`, array[i])
+
 					arrayForGreater.push( array[i] )
 				}
 				
+			} else {
+				arrayForEqual.push( pivot )
 			}
 
 		}
-		console.log(`arrayForLess`, arrayForLess )
-		console.log(`arrayForEqual`, arrayForEqual )
-		console.log(`arrayForGreater`, arrayForGreater )
 
-		const sortedArray = [...arrayForLess, ...arrayForEqual, ...arrayForGreater]
-		// console.log( `sortedArray`, sortedArray )
-		
+		const sortedArray = [...quickSort(arrayForLess), ...quickSort(arrayForEqual), ...quickSort(arrayForGreater)]
+		console.log( `sortedArray`, sortedArray )
+		return sortedArray
 	} else {
 		return array
 	}
 
 }
 
-const checkArray = [ 3, 2, 10, 5, 4, 7, 8, 1, 9, 6, 11 ] 
+const checkArray = [ 3, 2, 10, 5, 34, 345, 43, 65, 4, 7, 8, 1, 9, 6, 11 ] 
 
 quickSort( checkArray ) 
 
