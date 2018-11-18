@@ -30,7 +30,7 @@ const quickSort = arr => {
 				}
 				
 			} else {
-				
+
 				arrayForEqual.push( pivot )
 			}
 
@@ -53,8 +53,6 @@ console.log( quickSort( checkArray ) )
 // (константа зависит от реализации, обычно равна от 3 до 40), 
 // вызывается сортировка вставками. 
 // Увеличение скорости может составлять до 15%
-
-// в качестве опорного(pivot)
 
 // const quickSort = arr => {
 
